@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Matrix Visualizer</title>
+  <link rel="stylesheet" href="./css/main.css">
+  <script src="./js/processing.min.js"></script>
+  <script src="./js/coordinatePlane.js"></script>
+  <script src="./js/ui.js"></script>
+  <script src="./js/jquery-3.3.1.js"></script>
+</head>
+
+<body onload="loadCanvas()">
+  <div class="row">
+    <div class="column" id="coordinate-plane">
+      <canvas id="coordinate-canvas">
+      </canvas>
+    </div>
+    <div class="column" id="control-input">
+      <div class="tab">
+        <button class="tablinks" onclick="changeTab(event, 'Multiplication')" id="defaultOpen">Multiplication</button>
+        <button class="tablinks" onclick="changeTab(event, 'Addition')">Addition</button>
+      </div>
+      <div id="Multiplication" class="tabcontent">
+        <div class="matrix">
+          <h1>[</h1>
+          <table>
+            <tr>
+              <td>
+                <input type="number" id="m-1" value="0">
+              </td>
+              <td>
+                <input type="number" id="m-2" value="-1">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="number" id="m-3" value="1">
+              </td>
+              <td>
+                <input type="number" id="m-4" value="0">
+              </td>
+            </tr>
+          </table>
+          <h1>]</h1>
+        </div>
+        <button onclick="multiplyPoints()">Multiply</button>
+      </div>
+      <div id="Addition" class="tabcontent">
+        <div class="matrix">
+          <h1>[</h1>
+          <table>
+            <tr>
+              <td><input type="number" id="a-1" value="1"></td>
+              <td><input type="number" id="a-2" value="1"></td>
+            </tr>
+          </table>
+          <h1>]</h1>
+        </div>
+        <button onclick="addPoints()">Add</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+  </script>
+</body>
+
+</html>
