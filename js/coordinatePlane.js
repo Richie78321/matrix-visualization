@@ -2,7 +2,7 @@ var CANVAS_PADDING = .02;
 var POINT_SIZE = 5;
 
 var points;
-var prevPoints = [];
+var pointFrames = [];
 
 function loadCanvas()
 {
@@ -24,13 +24,13 @@ function processingFunction(processing)
 
   processing.draw = function()
   {
+    if (pointFrames.length > 0)
+    {
+      points = pointFrames.shift();
+    }
+
     processing.background(255, 255, 255);
     drawCoordinatePlane(processing);
-
-    for (let i = 0; i < prevPoints.length; i++)
-    {
-      drawPolygon(processing, prevPoints[i], [0, 0, 255, 56], [0, 0, 0, 56]);
-    }
     drawPolygon(processing, points, [255, 0, 0, 255], [0, 0, 0]);
   };
 

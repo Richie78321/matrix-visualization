@@ -19,8 +19,36 @@
     </div>
     <div class="column" id="control-input">
       <div class="tab">
-        <button class="tablinks" onclick="changeTab(event, 'Multiplication')" id="defaultOpen">Multiplication</button>
+        <button class="tablinks" onclick="changeTab(event, 'Rotation')" id="defaultOpen">Rotation</button>
+        <button class="tablinks" onclick="changeTab(event, 'Multiplication')">Multiplication</button>
         <button class="tablinks" onclick="changeTab(event, 'Addition')">Addition</button>
+      </div>
+      <div id="Rotation" class="tabcontent">
+        <i>Matrix that will be multiplied:</i>
+        <div class="matrix">
+          <h1>[</h1>
+          <table>
+            <tr>
+              <td>
+                <input type="number" id="r-1" value="0" readonly>
+              </td>
+              <td>
+                <input type="number" id="r-2" value="-1" readonly>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="number" id="r-3" value="1" readonly>
+              </td>
+              <td>
+                <input type="number" id="r-4" value="0" readonly>
+              </td>
+            </tr>
+          </table>
+          <h1>]</h1>
+        </div>
+        Rotation: <input type="number" id="r-angle" value="90" oninput="updateRotationMatrix()">
+        <button onclick="rotatePoints()">Rotate</button>
       </div>
       <div id="Multiplication" class="tabcontent">
         <div class="matrix">
